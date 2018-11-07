@@ -26,6 +26,8 @@ class RegistroDePedidos{
 	
 	method sucursalQueMasFacturo() = sucursalesReguladas.max{sucursal=>sucursal.totalFacturadoEnPedidos()}
 	
-	method sucursalesConPedidosDeTodosLosTalles() = pedidosRegistrados.map{}
+	method pedidosConTodosLosTalles() = {} // no lo pudo resolver
+	
+	method sucursalesConPedidosDeTodosLosTalles() = self.pedidosConTodosLosTalles().map{pedido=>pedido.sucursal()}
 	
 }
