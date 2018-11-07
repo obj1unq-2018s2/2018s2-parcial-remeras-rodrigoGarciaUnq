@@ -1,0 +1,42 @@
+import remeras.*
+import pedidos.*
+import sucursales.*
+import RegistroDePedidos.*
+
+describe "venta de remeras"{
+	
+	// REMERAS BASICAS
+	var remera1 = new RemeraBasica(talle=32,color="negro")
+	var remera2 = new RemeraBasica(talle=42,color="negro")	
+	var remera3 = new RemeraBasica(talle=32,color="rojo")
+	var remera4 = new RemeraBasica(talle=42,color="rojo")	
+	
+	// REMERAS BORDADAS
+	var remera5 = new RemerasBordadas(talle=44,color="negro",cantidadDeColores=1)
+	var remera6 = new RemerasBordadas(talle=44,color="negro",cantidadDeColores=4)	
+	
+
+	// REMERAS SUBLIMADAS
+	var remera7 = new RemerasSublimadas(talle=42,color="negro",ancho=10,alto=15,dibujoConDerechosDeAutor=true)	
+	var remera8 = new RemerasSublimadas(talle=44,color="negro",ancho=10,alto=15,dibujoConDerechosDeAutor=false)	
+	
+	test "precioDeRemeraBasica"{
+		assert.equals(remera1.costoRemera(),80)
+		assert.equals(remera2.costoRemera(),100)
+		assert.equals(remera3.costoRemera(),88)	
+		assert.equals(remera4.costoRemera(),110)					
+	}
+	
+	test "precioDeremeraBordada"{
+		assert.equals(remera5.costoRemera(),120)
+		assert.equals(remera6.costoRemera(),140)
+	}
+	
+	test "precioDeremeraSublimada"{
+		assert.equals(remera7.costoRemera(),275)
+		assert.equals(remera8.costoRemera(),175)
+	}
+		
+}
+
+
